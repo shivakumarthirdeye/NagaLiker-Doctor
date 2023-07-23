@@ -1,0 +1,124 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:100,100italic,300,300italic,regular,italic,500,500italic,700,700italic,900,900italic);
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background: #fafafa;
+  overflow-x: hidden !important;
+}
+@media screen and (max-width: 450px) {
+  body {
+    background: #fff;
+  }
+}
+
+input {
+  @apply focus:!outline-none xs:focus:outline focus:outline-lightBlack/80;
+}
+.auth-form .form-group input {
+  @apply bg-[#F1F1F1] p-4 md:p-5 py-3 md:py-3.5 rounded-[10px] border disabled:opacity-60 disabled:cursor-not-allowed border-none  w-full placeholder:!text-sm placeholder:text-[#93989B];
+}
+.form .form-group input {
+  @apply bg-[#F1F1F1] text-sm xs:text-base xs:bg-transparent xs:border border-[#C9C9C9] p-4 md:p-5 py-3 md:py-3.5 rounded-md  disabled:opacity-60 disabled:cursor-not-allowed  w-full placeholder:!text-sm placeholder:text-[#93989B];
+}
+.form .form-group textarea {
+  @apply bg-[#F1F1F1] text-sm xs:text-base xs:bg-transparent xs:border border-[#C9C9C9] p-4 md:p-5 py-3 md:py-3.5 rounded-md  disabled:opacity-60 disabled:cursor-not-allowed  w-full placeholder:!text-sm placeholder:text-[#93989B] h-[150px] resize-none;
+}
+
+input[type='checkbox'] {
+  cursor: pointer;
+  /* Add if not using autoprefixer */
+  -webkit-appearance: none;
+  /* Remove most all native input styles */
+  appearance: none;
+  /* For iOS < 15 */
+  background-color: var(--form-background);
+  /* Not removed via appearance */
+  margin: 0;
+
+  font: inherit;
+  color: currentColor;
+  width: 1.15em;
+  height: 1.15em;
+  border: 0.15em solid #2b2b2b;
+  border-radius: 0.15em;
+  transform: translateY(-0.075em);
+
+  display: grid;
+  place-content: center;
+}
+
+input[type='checkbox']::before {
+  content: '';
+  width: 0.65em;
+  height: 0.65em;
+  clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+  transform: scale(0);
+  transform-origin: bottom left;
+  transition: 120ms transform ease-in-out;
+  box-shadow: inset 1em 1em var(--form-control-color);
+  /* Windows High Contrast Mode */
+  background-color: white;
+}
+
+input[type='checkbox']:checked::before {
+  transform: scale(1);
+}
+input[type='checkbox']:checked {
+  transform: scale(1);
+  background: #b82c3a;
+  border: 0.15em solid #b82c3a;
+}
+
+/* hide arrows
+ Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none !important;
+  margin: 0 !important;
+}
+
+/* Firefox */
+input[type='number'] {
+  -moz-appearance: textfield !important;
+}
+
+/* input[type='checkbox']:focus {
+  outline: max(2px, 0.15em) solid currentColor;
+  outline-offset: max(2px, 0.15em);
+} */
+.container {
+  width: 100%;
+  max-width: clamp(0px, 95vw, 1355px) !important;
+  @apply mx-auto px-1.5;
+}
+
+.mainContainer {
+  @apply bg-white  xs:p-3 md:p-5 lg:p-6 xl:p-7  rounded-xl;
+}
+
+input[type='radio'] + label span {
+  transition: background 0.2s, transform 0.2s;
+}
+
+input[type='radio']:checked + label span {
+  background-color: #9a0007;
+  box-shadow: 0px 0px 0px 4px white inset;
+}
+
+@media screen and (max-width: 450px) {
+  input[type='radio']:checked + label span {
+    background-color: #9a0007;
+    box-shadow: 0px 0px 0px 3px white inset;
+  }
+}
+
+input[type='radio']:checked + label {
+  color: #9a0007;
+}
+
+.searchSvg path {
+  stroke: #b5b5c3;
+}
